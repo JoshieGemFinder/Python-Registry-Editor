@@ -219,6 +219,7 @@ cmds = [
 'These are: ' + ", ".join(registrylist),
 'Default registry hive is HKEY_CURRENT_USER',
 'Commands: ',
+'"admin()": try to run this program with administrator privileges if it isn\'t already',
 '"exit()": exit the python',
 '"typeHelp(<type>)": Prints the description of the registry type',
 '"registryHelp(<registry>)": Prints the description of the registry type',
