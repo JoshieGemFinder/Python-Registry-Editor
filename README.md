@@ -10,8 +10,8 @@ Open by double-clicking reg.py, there's instructions there
 
 Currently allows you to:
 
-View keys, and values
-Set values
+View keys and values  
+Set values  
 Create values
 
-Currently is console-based, might change that in the future
+Currently is console-based, that might change in the future
