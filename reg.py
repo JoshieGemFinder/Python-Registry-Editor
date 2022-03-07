@@ -63,6 +63,8 @@ def getValueName(type):
     """Returns the name to display for this type."""
     return typeinfo[type][2]
 
+typelist = []
+
 for t in typeinfo.items():
     typ = t[0]
     i = t[1]
@@ -71,12 +73,17 @@ for t in typeinfo.items():
     else:
         stored_name = i[0]
         typeinfo[typ] = typeinfo[typ] + tuple([stored_name])
+    typelist.append(stored_name)
     globals()[stored_name] = typ
+
+registrylist = []
 
 for r in registries.items():
     typ = r[0]
     i = r[1]
-    globals()[i[0]] = typ
+    name = i[0]
+    registrylist.append(name)
+    globals()[name] = typ
 
 access = winreg.KEY_READ | winreg.KEY_SET_VALUE
 
@@ -207,8 +214,10 @@ def createOrSetValue(name, value, type):
 cmds = [
 #'Constants: ',
 'There are constants for all of the value types',
+'These are: ' + ", ".join(typelist),
 'There are constants for all of the registry hives',
-'Default registry hive is "HKEY_CURRENT_USER"',
+'These are: ' + ", ".join(registrylist),
+'Default registry hive is HKEY_CURRENT_USER',
 'Commands: ',
 '"exit()": exit the python',
 '"typeHelp(<type>)": Prints the description of the registry type',
